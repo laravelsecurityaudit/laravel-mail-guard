@@ -19,6 +19,16 @@ class CreditCardRuleTest extends TestCase
         $this->assertSame('pii.credit_card', $findings[0]->ruleId);
     }
 
+    public function test_match_excludes_trailing_separator(): void
+    {
+        $context = new MessageContext((new Email)->text('card 4242 4242 4242 4242 today'));
+
+        $findings = iterator_to_array((new CreditCardRule)->scan($context));
+
+        $this->assertCount(1, $findings);
+        $this->assertSame('4242 4242 4242 4242', $findings[0]->rawMatch());
+    }
+
     public function test_it_ignores_a_luhn_invalid_number(): void
     {
         $context = new MessageContext((new Email)->text('Order 4242 4242 4242 4241 confirmed.'));
