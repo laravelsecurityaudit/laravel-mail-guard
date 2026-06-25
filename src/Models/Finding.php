@@ -4,7 +4,22 @@ namespace LaravelSecurityAudit\MailGuard\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Carbon;
 
+/**
+ * @property int $id
+ * @property int $message_id
+ * @property string $rule_id
+ * @property string $severity
+ * @property string $confidence
+ * @property string $title
+ * @property string|null $detail
+ * @property string|null $location
+ * @property string|null $snippet
+ * @property array<string, mixed>|null $meta
+ * @property Carbon|null $created_at
+ * @property-read Message $message
+ */
 class Finding extends Model
 {
     public $timestamps = false;
