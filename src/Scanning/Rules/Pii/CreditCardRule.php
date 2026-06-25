@@ -20,7 +20,7 @@ class CreditCardRule implements Rule
 
     public function scan(MessageContext $context): iterable
     {
-        if (preg_match_all('/\b(?:\d[ -]?){13,19}\b/', $context->body(), $matches) === false) {
+        if (preg_match_all('/\b\d(?:[ -]?\d){12,18}\b/', $context->body(), $matches) === false) {
             return;
         }
 
