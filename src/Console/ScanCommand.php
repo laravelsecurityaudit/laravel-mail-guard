@@ -103,8 +103,8 @@ class ScanCommand extends Command
             $findings->map(static fn (Finding $finding): array => [
                 $finding->severity,
                 $finding->rule_id,
-                (string) ($finding->message?->subject ?? '(unknown)'),
-                (string) ($finding->message?->captured_at ?? ''),
+                (string) ($finding->message->subject ?? '(unknown)'),
+                (string) ($finding->message->captured_at ?? ''),
             ])->all(),
         );
     }

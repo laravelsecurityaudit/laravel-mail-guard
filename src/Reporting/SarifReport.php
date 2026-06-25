@@ -25,7 +25,7 @@ class SarifReport
 
         foreach ($findings as $finding) {
             $ruleIds[$finding->rule_id] = true;
-            $uri = $finding->message?->source ?: ('mail-guard://message/'.$finding->message_id);
+            $uri = $finding->message->source ?: ('mail-guard://message/'.$finding->message_id);
 
             $results[] = [
                 'ruleId' => $finding->rule_id,
@@ -49,7 +49,7 @@ class SarifReport
                     'driver' => [
                         'name' => 'laravel-mail-guard',
                         'informationUri' => 'https://github.com/laravelsecurityaudit/laravel-mail-guard',
-                        'rules' => array_values($rules),
+                        'rules' => $rules,
                     ],
                 ],
                 'results' => $results,
