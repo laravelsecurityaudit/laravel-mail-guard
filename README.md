@@ -12,6 +12,17 @@ Preview tools answer "what does this email look like." Mail Guard answers "is th
 
 A mailable can look clean in code review and still leak, because the problem is in the data interpolated at send time, not in the template. An exception notification that dumps a request payload with a password. A debug build that includes an API key. A card number echoed into a receipt. Mail Guard runs on the rendered message, so it catches what static review cannot.
 
+## Where Mail Guard fits
+
+Mail Guard is a runtime, mail-specific security layer designed to sit alongside the tools you already use, not replace them:
+
+- Preview tools like Mailpit and Telescope show what an email looks like. Mail Guard answers whether it is safe to send, and can stop it.
+- Outgoing-mail trackers record what was sent. Mail Guard inspects content for secrets, PII, and compliance gaps before delivery.
+- Static analyzers and Laravel security scanners read your source, config, and `.env`. Mail Guard reads the rendered message at send time, catching leaks that only appear in runtime data.
+- PII and masking libraries work on arbitrary text or database fields. Mail Guard applies that idea to the mail channel, with redaction at rest, a send-time guard, and a CI gate.
+
+The combination it owns: outgoing mail, blocked before send, gated in CI.
+
 ## Requirements
 
 - PHP 8.2+
