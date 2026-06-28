@@ -162,7 +162,6 @@ One detection engine, guarding every place data leaves your app.
 | [laravel-ai-lint](https://packagist.org/packages/laravelsecurityaudit/laravel-ai-lint) | Static analysis: leaked AI keys and unsafe AI wiring |
 | [laravel-ai-circuit-breaker](https://packagist.org/packages/laravelsecurityaudit/laravel-ai-circuit-breaker) | Runaway AI loops and spend |
 | [laravel-ai-ledger](https://packagist.org/packages/laravelsecurityaudit/laravel-ai-ledger) | GDPR Article 30 processing ledger for AI traffic |
-| [ledger-cloud](https://packagist.org/packages/laravelsecurityaudit/ledger-cloud) | Independent signed witness for ledger records |
 
 ## License
 
