@@ -2,11 +2,12 @@
 
 namespace LaravelSecurityAudit\MailGuard\Scanning\Rules\Compliance;
 
-use LaravelSecurityAudit\MailGuard\Scanning\Confidence;
-use LaravelSecurityAudit\MailGuard\Scanning\Contracts\Rule;
-use LaravelSecurityAudit\MailGuard\Scanning\Finding;
 use LaravelSecurityAudit\MailGuard\Scanning\MessageContext;
-use LaravelSecurityAudit\MailGuard\Scanning\Severity;
+use LaravelSecurityAudit\SecretScanner\Scanning\Confidence;
+use LaravelSecurityAudit\SecretScanner\Scanning\Contracts\Rule;
+use LaravelSecurityAudit\SecretScanner\Scanning\Contracts\ScanContext;
+use LaravelSecurityAudit\SecretScanner\Scanning\Finding;
+use LaravelSecurityAudit\SecretScanner\Scanning\Severity;
 
 class ListUnsubscribeRule implements Rule
 {
@@ -15,8 +16,12 @@ class ListUnsubscribeRule implements Rule
         return 'compliance.list_unsubscribe';
     }
 
-    public function scan(MessageContext $context): iterable
+    public function scan(ScanContext $context): iterable
     {
+        if (! $context instanceof MessageContext) {
+            return;
+        }
+
         if (! $context->hasHeader('List-Unsubscribe')) {
             yield new Finding(
                 $this->id(),

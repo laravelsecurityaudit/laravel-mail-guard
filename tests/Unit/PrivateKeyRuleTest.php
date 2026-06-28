@@ -2,10 +2,10 @@
 
 namespace LaravelSecurityAudit\MailGuard\Tests\Unit;
 
-use LaravelSecurityAudit\MailGuard\Scanning\Confidence;
 use LaravelSecurityAudit\MailGuard\Scanning\MessageContext;
-use LaravelSecurityAudit\MailGuard\Scanning\Rules\Secrets\PrivateKeyRule;
-use LaravelSecurityAudit\MailGuard\Scanning\Severity;
+use LaravelSecurityAudit\SecretScanner\Rules\Secrets\PrivateKeyRule;
+use LaravelSecurityAudit\SecretScanner\Scanning\Confidence;
+use LaravelSecurityAudit\SecretScanner\Scanning\Severity;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Mime\Email;
 

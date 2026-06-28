@@ -2,12 +2,13 @@
 
 namespace LaravelSecurityAudit\MailGuard\Tests\Unit;
 
-use LaravelSecurityAudit\MailGuard\Scanning\Confidence;
-use LaravelSecurityAudit\MailGuard\Scanning\Contracts\Rule;
-use LaravelSecurityAudit\MailGuard\Scanning\Finding;
 use LaravelSecurityAudit\MailGuard\Scanning\MessageContext;
-use LaravelSecurityAudit\MailGuard\Scanning\Scanner;
-use LaravelSecurityAudit\MailGuard\Scanning\Severity;
+use LaravelSecurityAudit\SecretScanner\Scanning\Confidence;
+use LaravelSecurityAudit\SecretScanner\Scanning\Contracts\Rule;
+use LaravelSecurityAudit\SecretScanner\Scanning\Contracts\ScanContext;
+use LaravelSecurityAudit\SecretScanner\Scanning\Finding;
+use LaravelSecurityAudit\SecretScanner\Scanning\Scanner;
+use LaravelSecurityAudit\SecretScanner\Scanning\Severity;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Mime\Email;
 
@@ -29,7 +30,7 @@ class ScannerTest extends TestCase
                 return $this->ruleId;
             }
 
-            public function scan(MessageContext $context): iterable
+            public function scan(ScanContext $context): iterable
             {
                 yield new Finding($this->ruleId, $this->severity, Confidence::High, 'Test', 'detail');
             }
@@ -79,7 +80,7 @@ class ScannerTest extends TestCase
                 return 'broken.rule';
             }
 
-            public function scan(MessageContext $context): iterable
+            public function scan(ScanContext $context): iterable
             {
                 throw new \RuntimeException('boom');
             }

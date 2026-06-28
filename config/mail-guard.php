@@ -1,10 +1,10 @@
 <?php
 
 use LaravelSecurityAudit\MailGuard\Scanning\Rules\Compliance\ListUnsubscribeRule;
-use LaravelSecurityAudit\MailGuard\Scanning\Rules\Pii\CreditCardRule;
 use LaravelSecurityAudit\MailGuard\Scanning\Rules\Privacy\TrackingPixelRule;
-use LaravelSecurityAudit\MailGuard\Scanning\Rules\Secrets\PrivateKeyRule;
-use LaravelSecurityAudit\MailGuard\Scanning\Rules\Secrets\StripeKeyRule;
+use LaravelSecurityAudit\SecretScanner\Rules\Pii\CreditCardRule;
+use LaravelSecurityAudit\SecretScanner\Rules\Secrets\PrivateKeyRule;
+use LaravelSecurityAudit\SecretScanner\Rules\Secrets\StripeKeyRule;
 
 return [
     /*

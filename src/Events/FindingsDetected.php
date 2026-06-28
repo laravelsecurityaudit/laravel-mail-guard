@@ -3,7 +3,7 @@
 namespace LaravelSecurityAudit\MailGuard\Events;
 
 use LaravelSecurityAudit\MailGuard\Models\Message;
-use LaravelSecurityAudit\MailGuard\Scanning\Finding;
+use LaravelSecurityAudit\SecretScanner\Scanning\Finding;
 
 class FindingsDetected
 {

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- BREAKING: the detection engine (`Scanner`, `Finding`, `Severity`, `Confidence`, `Redactor`, `GuardDecision`, the `MasksSecrets` trait, the `Rule` contract, and the generic `secrets.private_key`, `secrets.stripe_key`, and `pii.credit_card` rules) moved to the shared `laravelsecurityaudit/laravel-secret-scanner` package. Custom rules now implement `LaravelSecurityAudit\SecretScanner\Scanning\Contracts\Rule` and receive a `ScanContext` (which `MessageContext` implements) instead of a `MessageContext`. Mail-only rules and behavior are unchanged. Intended for release as 2.0.0.
+
 ## [1.0.0] - 2026-06-25
 
 ### Added

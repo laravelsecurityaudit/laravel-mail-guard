@@ -122,7 +122,7 @@ Defaults are conservative: it blocks only `critical` findings at `high` confiden
 | `compliance.list_unsubscribe` | warning | high | no |
 | `privacy.tracking_pixel` | warning | medium | no |
 
-Toggle rules, override severities, and suppress findings in `config/mail-guard.php`. Add your own rule by implementing `LaravelSecurityAudit\MailGuard\Scanning\Contracts\Rule` and registering its class in `scan.rules`.
+Toggle rules, override severities, and suppress findings in `config/mail-guard.php`. Add your own rule by implementing `LaravelSecurityAudit\SecretScanner\Scanning\Contracts\Rule` (from `laravelsecurityaudit/laravel-secret-scanner`, which provides the shared detection engine) and registering its class in `scan.rules`.
 
 ## Configuration
 

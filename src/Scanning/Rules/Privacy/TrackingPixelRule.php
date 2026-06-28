@@ -2,11 +2,12 @@
 
 namespace LaravelSecurityAudit\MailGuard\Scanning\Rules\Privacy;
 
-use LaravelSecurityAudit\MailGuard\Scanning\Confidence;
-use LaravelSecurityAudit\MailGuard\Scanning\Contracts\Rule;
-use LaravelSecurityAudit\MailGuard\Scanning\Finding;
 use LaravelSecurityAudit\MailGuard\Scanning\MessageContext;
-use LaravelSecurityAudit\MailGuard\Scanning\Severity;
+use LaravelSecurityAudit\SecretScanner\Scanning\Confidence;
+use LaravelSecurityAudit\SecretScanner\Scanning\Contracts\Rule;
+use LaravelSecurityAudit\SecretScanner\Scanning\Contracts\ScanContext;
+use LaravelSecurityAudit\SecretScanner\Scanning\Finding;
+use LaravelSecurityAudit\SecretScanner\Scanning\Severity;
 
 class TrackingPixelRule implements Rule
 {
@@ -15,8 +16,12 @@ class TrackingPixelRule implements Rule
         return 'privacy.tracking_pixel';
     }
 
-    public function scan(MessageContext $context): iterable
+    public function scan(ScanContext $context): iterable
     {
+        if (! $context instanceof MessageContext) {
+            return;
+        }
+
         foreach ($context->imageTags() as $tag) {
             if ($this->looksLikePixel($tag)) {
                 yield new Finding(

@@ -3,7 +3,7 @@
 namespace LaravelSecurityAudit\MailGuard\Tests\Unit;
 
 use LaravelSecurityAudit\MailGuard\Scanning\MessageContext;
-use LaravelSecurityAudit\MailGuard\Scanning\Rules\Pii\CreditCardRule;
+use LaravelSecurityAudit\SecretScanner\Rules\Pii\CreditCardRule;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Mime\Email;
 

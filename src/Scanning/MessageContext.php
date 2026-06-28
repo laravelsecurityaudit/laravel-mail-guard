@@ -2,9 +2,10 @@
 
 namespace LaravelSecurityAudit\MailGuard\Scanning;
 
+use LaravelSecurityAudit\SecretScanner\Scanning\Contracts\ScanContext;
 use Symfony\Component\Mime\Email;
 
-class MessageContext
+class MessageContext implements ScanContext
 {
     private ?string $bodyCache = null;
 
@@ -84,6 +85,11 @@ class MessageContext
         }
 
         return $this->bodyCache = $combined;
+    }
+
+    public function location(): string
+    {
+        return 'body';
     }
 
     public function wasTruncated(): bool

@@ -2,8 +2,8 @@
 
 namespace LaravelSecurityAudit\MailGuard\Events;
 
-use LaravelSecurityAudit\MailGuard\Scanning\Finding;
 use LaravelSecurityAudit\MailGuard\Scanning\MessageContext;
+use LaravelSecurityAudit\SecretScanner\Scanning\Finding;
 
 class MailBlocked
 {

@@ -9,9 +9,9 @@ use Illuminate\Support\ServiceProvider;
 use LaravelSecurityAudit\MailGuard\Console\ScanCommand;
 use LaravelSecurityAudit\MailGuard\Listeners\GuardOutgoingEmail;
 use LaravelSecurityAudit\MailGuard\Models\Message;
-use LaravelSecurityAudit\MailGuard\Redaction\Redactor;
-use LaravelSecurityAudit\MailGuard\Scanning\Contracts\Rule;
-use LaravelSecurityAudit\MailGuard\Scanning\Scanner;
+use LaravelSecurityAudit\SecretScanner\Redaction\Redactor;
+use LaravelSecurityAudit\SecretScanner\Scanning\Contracts\Rule;
+use LaravelSecurityAudit\SecretScanner\Scanning\Scanner;
 
 class MailGuardServiceProvider extends ServiceProvider
 {

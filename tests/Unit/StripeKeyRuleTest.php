@@ -3,7 +3,7 @@
 namespace LaravelSecurityAudit\MailGuard\Tests\Unit;
 
 use LaravelSecurityAudit\MailGuard\Scanning\MessageContext;
-use LaravelSecurityAudit\MailGuard\Scanning\Rules\Secrets\StripeKeyRule;
+use LaravelSecurityAudit\SecretScanner\Rules\Secrets\StripeKeyRule;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Mime\Email;
 
