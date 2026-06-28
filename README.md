@@ -150,6 +150,20 @@ composer test
 composer analyse
 ```
 
+## The Laravel Security Audit family
+
+One detection engine, guarding every place data leaves your app.
+
+| Package | What it guards |
+| --- | --- |
+| [laravel-secret-scanner](https://packagist.org/packages/laravelsecurityaudit/laravel-secret-scanner) | Shared secret and PII detection engine (the core) |
+| **laravel-mail-guard** (this package) | Outgoing Laravel mail |
+| [laravel-ai-egress-guard](https://packagist.org/packages/laravelsecurityaudit/laravel-ai-egress-guard) | Outbound AI provider traffic (OpenAI, Anthropic, Gemini) |
+| [laravel-ai-lint](https://packagist.org/packages/laravelsecurityaudit/laravel-ai-lint) | Static analysis: leaked AI keys and unsafe AI wiring |
+| [laravel-ai-circuit-breaker](https://packagist.org/packages/laravelsecurityaudit/laravel-ai-circuit-breaker) | Runaway AI loops and spend |
+| [laravel-ai-ledger](https://packagist.org/packages/laravelsecurityaudit/laravel-ai-ledger) | GDPR Article 30 processing ledger for AI traffic |
+| [ledger-cloud](https://packagist.org/packages/laravelsecurityaudit/ledger-cloud) | Independent signed witness for ledger records |
+
 ## License
 
 The MIT License (MIT). See [LICENSE](LICENSE).
